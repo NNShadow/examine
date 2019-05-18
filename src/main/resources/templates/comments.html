@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>仅用于评论</title>
+    <script src="/js/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+<h1>评论</h1>
+<h2>[[${session.username}]]</h2>
+<a th:href="@{/index}">登出</a>
+<form action="/comment/post" method="post">
+    <input type="hidden" name="all" value="666">
+    <input name="content" type="text" style="width: 80%; height: 100px;" placeholder="填写你的评论">
+    <br>
+    <button type="submit">评论</button>
+</form>
+<h3>精彩评论</h3>
+<ul th:each="comment:${allComments}">
+    <li>
+        <span th:text="${comment.nickName}"></span>
+        :
+        <span th:text="${comment.content}"></span>
+    </li>
+    <li>
+        <label>评论时间：</label>
+        <span th:text="${#dates.format(comment.commentTime, 'yyyy-MM-dd HH:mm:ss')}"></span>
+<!--        <label>点赞数：（未实现）</label>-->
+<!--        <a href="#" th:data-id="${comment.id}" class="like-btn">-->
+<!--            <span th:text="${comment.likeNum}"></span>-->
+<!--        </a>-->
+    </li>
+</ul>
+
+</body>
+</html>

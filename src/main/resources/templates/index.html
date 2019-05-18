@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>登陆</title>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/signin.css" th:href="@{/css/signin.css}" rel="stylesheet">
+</head>
+
+<body class="text-center">
+
+<!--登陆界面需修改 方法名未改-->
+
+<form class="form-signin" th:action="@{/login}" method="post">
+    <img class="mb-4" th:src="@{/asserts/img/bootstrap-solid.svg}" src="asserts/img/bootstrap-solid.svg" alt=""
+         width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">登陆</h1>
+
+    <label class="sr-only">用户名</label>
+    <input type="text" name="username" class="form-control" placeholder="用户名" required="" autofocus="">
+    <label class="sr-only">密码</label>
+    <input type="password" name="password" class="form-control" placeholder="密码" required="">
+    <div class="checkbox mb-3">
+        <label>
+            <input type="checkbox" value="remember-me">记住我
+        </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">登陆</button>
+    <a class="btn btn-lg btn-primary btn-block" th:href="@{/register}">注册</a>
+
+    <p class="mt-5 mb-3 text-muted">© 2018-2019</p>
+</form>
+
+
+</body>
+</html>
