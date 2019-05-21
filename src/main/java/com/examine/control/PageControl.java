@@ -17,6 +17,7 @@ import java.util.List;
 public class PageControl {
     @Resource
     private UserService userService;
+    @Resource
     private CommentService commentService;
 
     @GetMapping(value = "/register")
@@ -30,26 +31,19 @@ public class PageControl {
     }
 
     @RequestMapping(value = "/login")
-    public String loginComment(User user, HttpSession httpSession){
+    public String loginComment(User user, HttpSession httpSession, ModelMap modelMap){
         if (userService.testPassword(user) == null)
 //            return "不存在该用户";
             return "error/loginError";
         if (userService.testPassword(user).equals("true")) {
             httpSession.setAttribute("username", user.getUsername());
-//            init();
+            List<Comment> comments = commentService.findAll();
+            modelMap.addAttribute("allComments",comments);
             return "comments";
         }
         else
 //            return "密码错误";
             return "error/loginError";
-    }
-
-    public void init(){
-        ModelMap modelMap = new ModelMap();
-        List<Comment> commentList = commentService.findAll();
-        for (int i=0; i<commentList.size(); i++){
-            modelMap.addAttribute("allComments", commentList.get(i));
-        }
     }
 
 }

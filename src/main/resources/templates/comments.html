@@ -7,10 +7,9 @@
 </head>
 <body>
 <h1>评论</h1>
-<h2>[[${session.username}]]</h2>
+<h2>用户名：[[${session.username}]]</h2>
 <a th:href="@{/index}">登出</a>
 <form action="/comment/post" method="post">
-    <input type="hidden" name="all" value="666">
     <input name="content" type="text" style="width: 80%; height: 100px;" placeholder="填写你的评论">
     <br>
     <button type="submit">评论</button>

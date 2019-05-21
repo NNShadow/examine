@@ -8,18 +8,16 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpSession;
-import java.util.Date;
 import java.util.List;
 
 @Controller
 public class CommentControl {
-    @Autowired
-    private CommentPostControl commentPostControl;
+    @Resource
+    private CommentService commentService;
 
     @RequestMapping(value = "/comments")
     public String post(ModelMap modelMap){
-        List<Comment> comments = commentPostControl.getComments("666");
+        List<Comment> comments = commentService.findAll();
         modelMap.addAttribute("allComments",comments);
         return "comments";
     }
