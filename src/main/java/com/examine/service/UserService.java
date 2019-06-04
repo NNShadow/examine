@@ -33,4 +33,25 @@ public class UserService {
             }
         }
     }
+
+    //根据id查询
+    public User queryUserById(int id){
+        return userRepository.queryUserById(id);
+    }
+
+    //新增用户
+    public int saveUser(User user){
+        return userRepository.insertUser(user);
+    }
+
+    //更新用户资源
+    public int updateUser(User user){
+        return userRepository.updateUser(user);
+    }
+
+    //删除用户资源
+    public User deleteUserById(int id){
+        return userRepository.deleteUserById(id);
+    }
+
 }
