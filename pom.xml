@@ -10,6 +10,7 @@
     </parent>
     <groupId>com.examine</groupId>
     <artifactId>demo</artifactId>
+    <packaging>jar</packaging>
     <version>0.0.1-SNAPSHOT</version>
     <name>examine</name>
     <description>Examine project for Spring Boot</description>
